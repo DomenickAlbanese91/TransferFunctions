@@ -1,0 +1,78 @@
+%1.
+Gs=tf(56,[1 9 14]);
+margin(Gs);
+
+%2.
+Gs=tf(56,[1 9 14]);
+CLTF=feedback(Gs,1)
+
+%3.
+Gs=tf(56,[1 9 14]);
+CLTF=feedback(Gs,1);
+step(CLTF)
+
+%4.
+Gs=tf(56,[1 9 14]);
+CLTF=feedback(Gs,1);
+pzmap(CLTF)
+
+%5.
+Gs=tf(56,[1 9 14]);
+CLTF=feedback(Gs,1);
+bode(CLTF)
+
+%7.
+Kh=5;
+Gsh=tf(Kh*56,[1 9 14]);
+bode(Gsh)
+
+%12.
+Gs=tf(56,[1 9 14]);
+Gcs=tf(9.900168424*[1 13.64472978],[1 27.01702459]);
+OLTF=series(Gs,Gcs)
+margin(OLTF)
+
+%13.
+Gs=tf(56,[1 9 14]);
+Gcs=tf(9.900168424*[1 13.64472978],[1 27.01702459]);
+OLTF=series(Gs,Gcs);
+CLTF_compensated=feedback(OLTF,1)
+
+%14.
+Gs=tf(56,[1 9 14]);
+Gcs=tf(9.900168424*[1 13.64472978],[1 27.01702459]);
+OLTF=series(Gs,Gcs);
+CLTF_compensated=feedback(OLTF,1)
+step(CLTF_compensated)
+
+%15.
+Gs=tf(56,[1 9 14]);
+Gcs=tf(9.900168424*[1 13.64472978],[1 27.01702459]);
+OLTF=series(Gs,Gcs);
+CLTF_compensated=feedback(OLTF,1);
+pzmap(CLTF_compensated)
+
+%16.
+Gs=tf(56,[1 9 14]);
+Gcs=tf(9.900168424*[1 13.64472978],[1 27.01702459]);
+OLTF=series(Gs,Gcs);
+CLTF_compensated=feedback(OLTF,1);
+bode(CLTF_compensated)
+
+%17.
+Gcs=tf(9.900168424*[1 13.64472978],[1 27.01702459]);
+CLTFc=feedback(Gcs,1);
+figure(1)
+step(CLTFc)
+figure(2)
+bode(CLTFc)
+
+%18.
+Gs=tf(56,[1 9 14]);
+Gcs=tf(9.900168424*[1 13.64472978],[1 27.01702459]);
+OLTF=series(Gs,Gcs);
+margin(OLTF)
+
+
+
+
